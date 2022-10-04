@@ -1,0 +1,116 @@
+﻿<Window x:Class="Proyecto_WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Proyecto_WPF"
+        mc:Ignorable="d"
+        Title="Calculadora Estandar" Height="600" Width="500">
+    <!--<Grid>
+        <Button Content="Enviar" HorizontalAlignment="Left" Margin="366,151,0,0" VerticalAlignment="Top" Width="124"/>
+        <Button Margin="541,89,259,145">
+            <Button.Width>100</Button.Width>
+            <Button.Height>200</Button.Height>
+            <Button.Content>
+                <WrapPanel>
+                    <TextBlock Foreground="Green">1</TextBlock>
+                    <TextBlock Foreground="Pink">2</TextBlock>
+                    <TextBlock>3</TextBlock>
+                </WrapPanel>
+            </Button.Content>
+        </Button>
+    </Grid>-->
+
+    <!--<StackPanel Name="StackPanel" PreviewMouseLeftButtonDown="StackPanel_PreviewMouseLeftButtonDown">
+        <Button Content="Holi" Width="150" Height="30" Margin="15" HorizontalAlignment="Left" />
+        <Button Content="Btn 1" Width="150" Height="30" Margin="15" HorizontalAlignment="Center" Click="Button_Click"/>
+        <Button Content= "Btn 2" Width="150" Height="30" Margin="15" HorizontalAlignment="Right"/>
+    </StackPanel>-->
+
+      <!--* Significa valor proporcional al espacio
+       Poner El numero tal cual es valor absoluto en pixeles
+        Auto significa que tomara el valor necesario para el texto
+        Multiplicador poniendo numero*
+      -->
+    <!--<Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            
+        </Grid.RowDefinitions>
+        
+        <Button Grid.Column="0" Grid.Row="0"> Btn 1</Button>
+        <Button Grid.Column="1" Grid.Row="0">Btn 2</Button>
+        <Button Grid.Column="2" Grid.Row="0">Btn 3</Button>
+        <Button Grid.Column="3" Grid.Row="0">Btn 4</Button>
+
+        <Button Grid.Column="0" Grid.Row="1">Btn 1</Button>
+        <Button Grid.Column="1" Grid.Row="1">Btn 2</Button>
+        <Button Grid.Column="2" Grid.Row="1">Btn 3</Button>
+        <Button Grid.Column="3" Grid.Row="1">Btn 4</Button>
+
+        <Button Grid.Column="0" Grid.Row="2">Btn 1</Button>
+        <Button Grid.Column="1" Grid.Row="2">Btn 2</Button>
+        <Button Grid.Column="2" Grid.Row="2">Btn 3</Button>
+        <Button Grid.Column="3" Grid.Row="2">Btn 4</Button>
+
+        <Grid Grid.Column="0" Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Button Grid.Column="0">Btn A</Button>
+            <Button Grid.Column="1">Btn B</Button>
+        </Grid>
+    </Grid>-->
+
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Name="Resultado" Grid.ColumnSpan="4" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="30">0</TextBlock>
+        <Button Grid.Column="3" Grid.Row="1" FontSize="30" Click="Division_Click">/</Button>
+        <Button Grid.Column="3" Grid.Row="2" FontSize="30" Click="Multiplicacion_Click">x</Button>
+        <Button Grid.Column="3" Grid.Row="3" FontSize="30" Click="Resta_Click">-</Button>
+        <Button Grid.Column="3" Grid.Row="4" FontSize="30" Click="Suma_Click">+</Button>
+        <Button Grid.Column="2" Grid.Row="2" FontSize="30" Click="Nueve_Click">9</Button>
+        <Button Grid.Column="1" Grid.Row="2" FontSize="30" Click="Ocho_Click">8</Button>
+        <Button Grid.Column="0" Grid.Row="2" FontSize="30" Click="Siete_Click">7</Button>
+        <Button Grid.Column="2" Grid.Row="3" FontSize="30" Click="Seis_Click">6</Button>
+        <Button Grid.Column="1" Grid.Row="3" FontSize="30" Click="Cinco_Click">5</Button>
+        <Button Grid.Column="0" Grid.Row="3" FontSize="30" Click="Cuatro_Click">4</Button>
+        <Button Grid.Column="2" Grid.Row="4" FontSize="30" Click="Tres_Click">3</Button>
+        <Button Grid.Column="1" Grid.Row="4" FontSize="30" Click="Dos_Click">2</Button>
+        <Button Grid.Column="0" Grid.Row="4" FontSize="30" Click="Uno_Click">1</Button>
+        <Button Grid.Column="0" Grid.Row="5" FontSize="30" Click="Limpiar_Click">C</Button>
+        <Button Grid.Column="1" Grid.Row="5" FontSize="30" Click="Cero_Click">0</Button>
+        <Button Grid.Column="2" Grid.Row="5" FontSize="30" Click="Punto_Click">.</Button>
+        <Button Grid.Column="3" Grid.Row="5" Foreground="White" Background="Blue" FontSize="30" Click="Igual_Click"> =</Button>
+    </Grid>
+</Window>
