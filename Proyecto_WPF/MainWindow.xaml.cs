@@ -56,7 +56,7 @@ namespace Proyecto_WPF
         private void Division_Click(object sender, RoutedEventArgs e)
         {
             
-            if(miCalculadora.GetNumero1().Length>0)
+            if(miCalculadora.Numero1.Length>0)
             {
                 miCalculadora.SetPantalla("/");
                 miCalculadora.SetOperacion("/");
@@ -68,7 +68,7 @@ namespace Proyecto_WPF
 
         private void Multiplicacion_Click(object sender, RoutedEventArgs e)
         {
-            if (miCalculadora.GetNumero1().Length > 0)
+            if (miCalculadora.Numero1.Length > 0)
             {
                 miCalculadora.SetPantalla("X");
                 miCalculadora.SetOperacion("X");
@@ -79,7 +79,7 @@ namespace Proyecto_WPF
 
         private void Resta_Click(object sender, RoutedEventArgs e)
         {
-            if (miCalculadora.GetNumero1().Length > 0)
+            if (miCalculadora.Numero1.Length > 0)
             {
                 miCalculadora.SetPantalla("-");
                 miCalculadora.SetOperacion("-");
@@ -90,7 +90,7 @@ namespace Proyecto_WPF
 
         private void Suma_Click(object sender, RoutedEventArgs e)
         {
-            if (miCalculadora.GetNumero1().Length > 0)
+            if (miCalculadora.Numero1.Length > 0)
             {
                 miCalculadora.SetPantalla("+");
                 miCalculadora.SetOperacion("+");
@@ -122,11 +122,11 @@ namespace Proyecto_WPF
 
         private void Igual_Click(object sender, RoutedEventArgs e)
         {
-            if (miCalculadora.GetNumero1().Length>0 && miCalculadora.GetNumero2().Length > 0)
+            if (miCalculadora.Numero1.Length>0 && miCalculadora.Numero1.Length > 0)
             {
                 double total;
-                double Numero1 = Convert.ToDouble(miCalculadora.GetNumero1());
-                double Numero2 = Convert.ToDouble(miCalculadora.GetNumero2());
+                double Numero1 = Convert.ToDouble(miCalculadora.Numero1.ToString());
+                double Numero2 = Convert.ToDouble(miCalculadora.Numero2.ToString());
                 
                 switch (miCalculadora.GetOperacion())
                 {
@@ -222,55 +222,36 @@ namespace Proyecto_WPF
         }
     }
 
-    class Calculadora
+    public class Calculadora
     {
-        private String Numero1;
-        private String Numero2;
-        private String Pantalla;
-        private String Operacion;
+        public StringBuilder Numero1 = new StringBuilder();
+
+        public StringBuilder Numero2 = new StringBuilder();
+        
+        private StringBuilder Pantalla = new StringBuilder();
+        
+        private StringBuilder Operacion = new StringBuilder();
         private Boolean Punto;
         List<String> Operaciones = new List<String> { "/", "X", "-","+"};
 
-        public delegate double OperacionMatematica(double Numero1, double Numero2);
-
         public Calculadora()
         {
-            this.Numero1 = "";
-            this.Numero2 = "";
-            this.Operacion = "";
-            this.Punto = false;
+            Numero1.Append("");
+            Numero2.Append("");
+            Operacion.Append("");
+            Punto = false;
 
-        }
-
-        public void SetNumero1(String Numero1)
-        {
-            this.Numero1 += Numero1;
-        }
-
-        public void SetNumero2(String Numero2)
-        {
-            this.Numero2 += Numero2;
-        }
-
-        public String GetNumero1()
-        {
-            return Numero1;
-        }
-
-        public String GetNumero2()
-        {
-            return Numero2;
         }
 
         public void SetOperacion(String Operacion)
         {
             if(this.Operacion.Length==0)
-                this.Operacion += Operacion;
+                this.Operacion.Append(Operacion);
         }
 
         public String GetOperacion()
         {
-            return Operacion;
+            return Operacion.ToString();
         }
 
         public void SetPunto(Boolean Punto)
@@ -288,33 +269,33 @@ namespace Proyecto_WPF
             if (Operaciones.Contains(Digito) && Pantalla.Equals(Digito))
                 return;
             else
-                Pantalla += Digito;
+                Pantalla.Append(Digito);
 
         }
 
         public String GetPantalla()
         {
-            return Pantalla;
+            return Pantalla.ToString();
         }
 
         public void SetNumeros(String Numero)
         {
             if (Operacion.Length==0)
             {
-                this.SetNumero1(Numero);
+                Numero1.Append(Numero);
             }
             else
             {
-                this.SetNumero2(Numero);
+                Numero2.Append(Numero);
             }
         }
 
         public void LimpiarPantalla()
         {
-            Pantalla = String.Empty;
-            Numero1 = String.Empty;
-            Numero2 = String.Empty;
-            Operacion = String.Empty;
+            Pantalla.Clear();
+            Numero1.Clear();
+            Numero2.Clear();
+            Operacion.Clear();
         }
 
        
