@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Proyecto_WPF"
         mc:Ignorable="d"
-        Title="Calculadora Estandar" Height="600" Width="500">
+        Title="Calculadora Estandar" Height="600" Width="800">
     <!--<Grid>
         <Button Content="Enviar" HorizontalAlignment="Left" Margin="366,151,0,0" VerticalAlignment="Top" Width="124"/>
         <Button Margin="541,89,259,145">
@@ -78,39 +78,47 @@
     </Grid>-->
 
     <Grid>
-
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="500"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-        </Grid.RowDefinitions>
 
-        <TextBlock Name="Resultado" Grid.ColumnSpan="4" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="30">0</TextBlock>
-        <Button Grid.Column="3" Grid.Row="1" FontSize="30" Click="Division_Click">/</Button>
-        <Button Grid.Column="3" Grid.Row="2" FontSize="30" Click="Multiplicacion_Click">x</Button>
-        <Button Grid.Column="3" Grid.Row="3" FontSize="30" Click="Resta_Click">-</Button>
-        <Button Grid.Column="3" Grid.Row="4" FontSize="30" Click="Suma_Click">+</Button>
-        <Button Grid.Column="2" Grid.Row="2" FontSize="30" Click="Nueve_Click">9</Button>
-        <Button Grid.Column="1" Grid.Row="2" FontSize="30" Click="Ocho_Click">8</Button>
-        <Button Grid.Column="0" Grid.Row="2" FontSize="30" Click="Siete_Click">7</Button>
-        <Button Grid.Column="2" Grid.Row="3" FontSize="30" Click="Seis_Click">6</Button>
-        <Button Grid.Column="1" Grid.Row="3" FontSize="30" Click="Cinco_Click">5</Button>
-        <Button Grid.Column="0" Grid.Row="3" FontSize="30" Click="Cuatro_Click">4</Button>
-        <Button Grid.Column="2" Grid.Row="4" FontSize="30" Click="Tres_Click">3</Button>
-        <Button Grid.Column="1" Grid.Row="4" FontSize="30" Click="Dos_Click">2</Button>
-        <Button Grid.Column="0" Grid.Row="4" FontSize="30" Click="Uno_Click">1</Button>
-        <Button Grid.Column="0" Grid.Row="5" FontSize="30" Click="Limpiar_Click">C</Button>
-        <Button Grid.Column="1" Grid.Row="5" FontSize="30" Click="Cero_Click">0</Button>
-        <Button Grid.Column="2" Grid.Row="5" FontSize="30" Click="Punto_Click">.</Button>
-        <Button Grid.Column="3" Grid.Row="5" Foreground="White" Background="Blue" FontSize="30" Click="Igual_Click"> =</Button>
-    </Grid>
+        <Grid Grid.Column="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Name="Resultado" Grid.ColumnSpan="4" HorizontalAlignment="Right" VerticalAlignment="Bottom" FontSize="30">0</TextBlock>
+            <Button Grid.Column="3" Grid.Row="1" FontSize="30" Click="Division_Click">/</Button>
+            <Button Grid.Column="3" Grid.Row="2" FontSize="30" Click="Multiplicacion_Click">x</Button>
+            <Button Grid.Column="3" Grid.Row="3" FontSize="30" Click="Resta_Click">-</Button>
+            <Button Grid.Column="3" Grid.Row="4" FontSize="30" Click="Suma_Click">+</Button>
+            <Button Grid.Column="2" Grid.Row="2" FontSize="30" Click="Nueve_Click">9</Button>
+            <Button Grid.Column="1" Grid.Row="2" FontSize="30" Click="Ocho_Click">8</Button>
+            <Button Grid.Column="0" Grid.Row="2" FontSize="30" Click="Siete_Click">7</Button>
+            <Button Grid.Column="2" Grid.Row="3" FontSize="30" Click="Seis_Click">6</Button>
+            <Button Grid.Column="1" Grid.Row="3" FontSize="30" Click="Cinco_Click">5</Button>
+            <Button Grid.Column="0" Grid.Row="3" FontSize="30" Click="Cuatro_Click">4</Button>
+            <Button Grid.Column="2" Grid.Row="4" FontSize="30" Click="Tres_Click">3</Button>
+            <Button Grid.Column="1" Grid.Row="4" FontSize="30" Click="Dos_Click">2</Button>
+            <Button Grid.Column="0" Grid.Row="4" FontSize="30" Click="Uno_Click">1</Button>
+            <Button Grid.Column="0" Grid.Row="5" FontSize="30" Click="Limpiar_Click">C</Button>
+            <Button Grid.Column="1" Grid.Row="5" FontSize="30" Click="Cero_Click">0</Button>
+            <Button Grid.Column="2" Grid.Row="5" FontSize="30" Click="Punto_Click">.</Button>
+            <Button Grid.Column="3" Grid.Row="5" Foreground="White" Background="Blue" FontSize="30" Click="Igual_Click">=</Button>
+        </Grid>
+        <StackPanel Grid.Column="1">
+            <Label Name="LTime" Width="150" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Aqua"></Label>
+        </StackPanel>
+    </Grid>    
 </Window>

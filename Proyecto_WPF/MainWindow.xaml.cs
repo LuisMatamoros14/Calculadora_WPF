@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Globalization;
+using System.Threading;
+using System.Windows.Threading;
 
 namespace Proyecto_WPF
 {
@@ -24,8 +27,13 @@ namespace Proyecto_WPF
 
         public MainWindow()
         {
-            InitializeComponent();
 
+            InitializeComponent();
+            //this.Dispatcher.BeginInvoke(new ThreadStart(()=>HoraActual()));
+            DispatcherTimer dispatcherTimer = new DispatcherTimer();
+            dispatcherTimer.Tick += new EventHandler(HoraActual);
+            dispatcherTimer.Interval = new TimeSpan(0, 0,0);
+            dispatcherTimer.Start();
             //Grid miGrid = new Grid();
 
             //this.Content = miGrid;
@@ -63,7 +71,6 @@ namespace Proyecto_WPF
                 miCalculadora.SetPunto(false);
                 Resultado.Text = miCalculadora.GetPantalla();
             }
-
         }
 
         private void Multiplicacion_Click(object sender, RoutedEventArgs e)
@@ -220,6 +227,14 @@ namespace Proyecto_WPF
             miCalculadora.SetNumeros("0");
             Resultado.Text = miCalculadora.GetPantalla();
         }
+
+        private void HoraActual(object obj, EventArgs eventArgs)
+        {
+
+            //DateTime horaActual = DateTime.ParseExact("12:00:00", "h:mm:ss", CultureInfo.CurrentCulture);
+            LTime.Content = DateTime.Now.ToString("hh:mm:ss");
+
+        }
     }
 
     public class Calculadora
@@ -231,7 +246,9 @@ namespace Proyecto_WPF
         private StringBuilder Pantalla = new StringBuilder();
         
         private StringBuilder Operacion = new StringBuilder();
+
         private Boolean Punto;
+        
         List<String> Operaciones = new List<String> { "/", "X", "-","+"};
 
         public Calculadora()
@@ -270,7 +287,6 @@ namespace Proyecto_WPF
                 return;
             else
                 Pantalla.Append(Digito);
-
         }
 
         public String GetPantalla()
@@ -297,7 +313,11 @@ namespace Proyecto_WPF
             Numero2.Clear();
             Operacion.Clear();
         }
-
-       
     }
+
+
 }
+
+
+
+
